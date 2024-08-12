@@ -6,7 +6,7 @@
     <body>
         <script>
             function solution(arr){         
-                let answer, min=Number.MAX_SAFE_INTEGER;
+                let answer, min=Number.MAX_SAFE_INTEGER; //OR min=arr[0];
                 for(let i=0; i<arr.length; i++){
                     if(arr[i]<min) min=arr[i];
                 }
