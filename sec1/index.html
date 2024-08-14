@@ -6,12 +6,11 @@
   <body>
     <script>
       function solution(n) {
-        let answer;
-
+        let answer = 0;
+        for (let i = 1; i <= n; i++) answer += i;
         return answer;
       }
-      const arr = [12, 77, 38, 41, 53, 92, 85];
-      console.log(solution(arr));
+      console.log(solution(10));
     </script>
   </body>
 </html>

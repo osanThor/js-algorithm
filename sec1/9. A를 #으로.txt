@@ -40,3 +40,29 @@
         </script>
     </body>
 </html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(string) {
+        let answer;
+        const arr = string.split("");
+        const convertArr = arr.map((str) => {
+          if (str === "A") {
+            return "#";
+          }
+          return str;
+        });
+        answer = convertArr.join("");
+        return answer;
+      }
+
+      const string = "BANANA";
+      console.log(solution(string));
+    </script>
+  </body>
+</html>
