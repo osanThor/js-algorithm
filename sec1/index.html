@@ -5,12 +5,13 @@
   </head>
   <body>
     <script>
-      function solution(n) {
-        let answer = 0;
-        for (let i = 1; i <= n; i++) answer += i;
+      function solution(arr) {
+        let answer;
+        answer = arr.filter((el, i) => arr.indexOf(el) === i);
         return answer;
       }
-      console.log(solution(10));
+      const arr = ["good", "time", "good", "time", "student"];
+      console.log(solution(arr));
     </script>
   </body>
 </html>
