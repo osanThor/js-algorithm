@@ -5,29 +5,19 @@
   </head>
   <body>
     <script>
-      function solution() {
-        let answer = [];
-
-        return answer;
+      function shallowCopy(n) {
+        let newArr = Array(n).fill(Array(n).fill(0));
+        newArr[1][0] = 1;
+        return newArr;
       }
+      console.log(shallowCopy(5));
 
-      // console.log(solution());
-      const arr = [1, 2, 3];
-      function reduce(predicate, initialValue) {
-        let answer = initialValue || arr[0];
-        for (let i = 0; i < arr.length; i++) {
-          answer = predicate(answer, arr[i]);
-        }
-        return answer;
+      function deepCopy(n) {
+        let newArr = Array.from(Array(n), () => Array(n).fill(0));
+        newArr[0][0] = 1;
+        return newArr;
       }
-
-      console.log(
-        reduce(function (a, c) {
-          if (c > 0) {
-            return a.push(c);
-          }
-        }, [])
-      );
+      console.log(deepCopy(5));
     </script>
   </body>
 </html>

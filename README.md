@@ -16,7 +16,7 @@ repo에 sec10까지 👉🏻[인프런 강의](https://www.inflearn.com/course/%
 ---
 
 - [x] sec1
-- [ ] sec2
+- [x] sec2
 - [ ] sec3
 - [ ] sec4
 - [ ] sec5
@@ -25,3 +25,9 @@ repo에 sec10까지 👉🏻[인프런 강의](https://www.inflearn.com/course/%
 - [ ] sec8
 - [ ] sec9
 - [ ] sec10
+
+---
+
+#### 프로그래머스, 백준 등
+
+- [ ] sec11

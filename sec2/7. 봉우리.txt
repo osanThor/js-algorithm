@@ -37,3 +37,45 @@
         </script>
     </body>
 </html>
+
+// 내풀이1
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+        const n = arr.length;
+        const outline = Array.from({ length: n }, () => 0);
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            const upperArr = arr[i - 1] || outline;
+            const underArr = arr[i + 1] || outline;
+            const upper = upperArr[j] || 0;
+            const under = underArr[j] || 0;
+            const left = arr[i][j - 1] || 0;
+            const right = arr[i][j + 1] || 0;
+            const currentVal = arr[i][j];
+            const max = Math.max(currentVal, upper, under, left, right);
+            if (max === currentVal) answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      const arr = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
+

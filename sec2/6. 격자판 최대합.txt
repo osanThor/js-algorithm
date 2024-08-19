@@ -35,3 +35,104 @@
         </script>
     </body>
 </html>
+
+// 내 풀이1
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer;
+        let hMax = 0,
+          vMax = 0,
+          zMax = 0;
+
+        // 행의 합 중 최대값
+        for (let x of arr) {
+          const sum = x.reduce((a, b) => {
+            return a + b;
+          }, 0);
+          if (hMax < sum) hMax = sum;
+        }
+        // 열의 합 중 최대값
+        for (let i = 0; i < arr.length; i++) {
+          let vSum = 0;
+          for (let j = 0; j < arr.length; j++) {
+            vSum += arr[j][i];
+          }
+          if (vMax < vSum) vMax = vSum;
+        }
+        // 대각선의 합 중 최대값
+        let rSum = 0,
+          lSum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          rSum += arr[i][i];
+          lSum += arr[i][arr.length - (i + 1)];
+          if (rSum > lSum) zMax = rSum;
+          else zMax = lSum;
+        }
+
+        console.log(hMax, vMax, zMax);
+        answer = Math.max(hMax, vMax, zMax);
+
+        return answer;
+      }
+
+      const arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
+
+// 다른 사람 풀이
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(array) {
+        let answer = 0;
+        for (let i = 0; i < array.length; i++) {
+          for (let j = 0; j < array[i].length; j++) {
+            const result = [];
+            const target = array[i][j];
+            const left = array[i][j - 1] ?? 0;
+            const right = array[i][j + 1] ?? 0;
+            const top = i > 0 ? array[i - 1][j] : 0;
+            const bottom = i < array.length - 1 ? array[i + 1][j] : 0;
+            result.push(target);
+            result.push(left);
+            result.push(right);
+            result.push(top);
+            result.push(bottom);
+
+            if (target === result.sort((a, b) => b - a)[0]) answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(
+        solution([
+          [5, 3, 7, 2, 3],
+          [3, 7, 1, 6, 1],
+          [7, 2, 5, 3, 4],
+          [4, 3, 6, 4, 1],
+          [8, 7, 3, 5, 2],
+        ])
+      );
+    </script>
+  </body>
+</html>
