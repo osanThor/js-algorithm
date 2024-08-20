@@ -42,5 +42,29 @@
     </body>
 </html>
 
+// 내풀이1
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "YES";
+        let ASC = "",
+          DESC = "";
+        const n = str.length;
+        for (let i = 0; i < n; i++) {
+          ASC += str[i].toUpperCase();
+          DESC += str[n - i - 1].toUpperCase();
+        }
+        if (ASC !== DESC) answer = "NO";
+        return answer;
+      }
+      console.log(solution("gooG"));
+    </script>
+  </body>
+</html>
 
 
