@@ -34,3 +34,29 @@
         </script>
     </body>
 </html>
+
+//내풀이
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = [];
+        const len = s.length;
+        for (let i = 0; i < len; i++) {
+          for (let j = 0; j < len; j++) {
+            if (s[i] === t || s[i - j] === t || s[i + j] === t) {
+              answer.push(j);
+              break;
+            }
+          }
+        }
+        return answer;
+      }
+      console.log(solution("teachermode", "e"));
+    </script>
+  </body>
+</html>

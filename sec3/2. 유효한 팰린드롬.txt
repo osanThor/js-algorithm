@@ -17,3 +17,28 @@
         </script>
     </body>
 </html>
+
+//내풀이1
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "YES";
+        str = str.toLowerCase();
+        let s = "";
+        for (let i = 0; i < str.length; i++) {
+          const code = str[i].charCodeAt();
+          if (code >= 97 && code <= 121) s += str[i];
+        }
+        if (s.split("").reverse().join("") !== s) answer = "NO";
+
+        return answer;
+      }
+      console.log(solution("found7, time: study; Yduts; emit, 7Dnuof"));
+    </script>
+  </body>
+</html>

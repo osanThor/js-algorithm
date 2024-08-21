@@ -18,3 +18,41 @@
         </script>
     </body>
 </html>
+
+//내풀이2
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = str.replace(/[^0-9]/g, "");
+        return Number(answer);
+      }
+      console.log(solution("g0en2T0s8eSoft"));
+    </script>
+  </body>
+</html>
+
+//내풀이1
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "";
+        for (let x of str) {
+          const code = x.charCodeAt();
+          if (code >= 48 && code <= 57) answer += x;
+        }
+        return parseInt(answer, 10);
+      }
+      console.log(solution("g0en2T0s8eSoft"));
+    </script>
+  </body>
+</html>

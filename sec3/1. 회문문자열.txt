@@ -52,12 +52,13 @@
     <script>
       function solution(str) {
         let answer = "YES";
+        str = str.toLowerCase();
         let ASC = "",
           DESC = "";
         const n = str.length;
         for (let i = 0; i < n; i++) {
-          ASC += str[i].toUpperCase();
-          DESC += str[n - i - 1].toUpperCase();
+          ASC += str[i];
+          DESC += str[n - i - 1];
         }
         if (ASC !== DESC) answer = "NO";
         return answer;
@@ -66,5 +67,4 @@
     </script>
   </body>
 </html>
-
 
