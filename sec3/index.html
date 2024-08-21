@@ -12,7 +12,7 @@
           if (s[i] === s[i + 1]) count++;
           else {
             answer += s[i];
-            if (count > 1) answer += count;
+            if (count > 1) answer += String(count);
             count = 1;
           }
         }

@@ -58,3 +58,72 @@
             console.log(solution(7, arr));
         </script>
     </body>
+// 내풀이2
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr[0],
+          max = Number.MIN_SAFE_INTEGER;
+        for (let x of arr) {
+          let sum = 0,
+            val = x;
+          while (val > 0) {
+            sum += val % 10;
+            val = Math.floor(val / 10);
+          }
+          if (sum > max) {
+            max = sum;
+            answer = x;
+          }
+          if (sum === max && x > answer) answer = x;
+        }
+
+        return answer;
+      }
+
+      const arr = [128, 460, 603, 40, 521, 137, 123];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
+
+    //내풀이1
+    <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr[0];
+        let max = Number.MIN_SAFE_INTEGER;
+        for (let x of arr) {
+          let sum = 0,
+            val = x;
+          while (val > 0) {
+            sum += val % 10;
+            val = Math.floor(val / 10);
+          }
+          if (sum >= max) {
+            max = sum;
+            answer = x;
+            if (x > answer) answer = x;
+          }
+        }
+
+        return answer;
+      }
+
+      const arr = [128, 460, 603, 40, 521, 137, 123];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
