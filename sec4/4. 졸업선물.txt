@@ -40,9 +40,6 @@
     <script>
       function solution(n, m, arr) {
         let answer = Number.MIN_SAFE_INTEGER;
-        const total = arr.reduce((a, b) => {
-          return a + b.reduce((c, d) => c + d);
-        }, 0);
         arr = arr.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
         for (let i = 0; i < n; i++) {
           const sales = arr[i].reduce((a, b) => a / 2 + b);
@@ -72,3 +69,4 @@
     </script>
   </body>
 </html>
+

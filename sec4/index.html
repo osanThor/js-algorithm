@@ -5,37 +5,27 @@
   </head>
   <body>
     <script>
-      function solution(n, m, arr) {
-        let answer = Number.MIN_SAFE_INTEGER;
-        const total = arr.reduce((a, b) => {
-          return a + b.reduce((c, d) => c + d);
-        }, 0);
-        arr = arr.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+      function solution(k, arr) {
+        let answer;
+        let sumArr = [];
+        const n = arr.length;
         for (let i = 0; i < n; i++) {
-          const sales = arr[i].reduce((a, b) => a / 2 + b);
-          let totalSum = sales,
-            cnt = 1;
           for (let j = 0; j < n; j++) {
-            if (i !== j) {
-              const sum = arr[j].reduce((a, b) => a + b);
-              if (totalSum + sum > m) break;
-              totalSum += sum;
-              cnt++;
+            for (let m = 0; m < n; m++) {
+              if (i !== j && i !== m && j !== m) {
+                const sum = arr[i] + arr[j] + arr[m];
+                if (!sumArr.includes(sum)) sumArr.push(sum);
+              }
             }
           }
-          if (answer < cnt) answer = cnt;
         }
+        sumArr.sort((a, b) => b - a);
+        answer = sumArr[k - 1];
         return answer;
       }
 
-      let arr = [
-        [6, 6],
-        [2, 2],
-        [4, 3],
-        [4, 5],
-        [10, 3],
-      ];
-      console.log(solution(5, 28, arr));
+      let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+      console.log(solution(3, arr));
     </script>
   </body>
 </html>
