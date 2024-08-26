@@ -29,3 +29,46 @@
         </script>
     </body>
 </html>
+
+// 내풀이1
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m, arr) {
+        let answer = Number.MIN_SAFE_INTEGER;
+        const total = arr.reduce((a, b) => {
+          return a + b.reduce((c, d) => c + d);
+        }, 0);
+        arr = arr.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+        for (let i = 0; i < n; i++) {
+          const sales = arr[i].reduce((a, b) => a / 2 + b);
+          let totalSum = sales,
+            cnt = 1;
+          for (let j = 0; j < n; j++) {
+            if (i !== j) {
+              const sum = arr[j].reduce((a, b) => a + b);
+              if (totalSum + sum > m) break;
+              totalSum += sum;
+              cnt++;
+            }
+          }
+          if (answer < cnt) answer = cnt;
+        }
+        return answer;
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(5, 28, arr));
+    </script>
+  </body>
+</html>
