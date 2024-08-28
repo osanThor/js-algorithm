@@ -5,18 +5,17 @@
   </head>
   <body>
     <script>
-      function solution(arr1, arr2) {
-        let answer = [];
-        for (let x of arr1) {
-          if (arr2.includes(x)) answer.push(x);
+      function solution(m, arr) {
+        let answer = 0,
+          sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
         }
-        answer = answer.sort((a, b) => a - b);
         return answer;
       }
 
-      let arr1 = [1, 3, 9, 5, 2];
-      let arr2 = [3, 2, 5, 7, 8];
-      console.log(solution(arr1, arr2));
+      let arr = [1, 2, 1, 3, 1, 1, 1, 2];
+      console.log(solution(6, arr));
     </script>
   </body>
 </html>
