@@ -5,28 +5,34 @@
   </head>
   <body>
     <script>
-      function solution(m, arr) {
-        let answer = 0,
-          sum = 0,
-          start = 0;
-        const n = arr.length;
-
-        for (let end = 0; end < n; end++) {
-          sum += arr[end];
-
-          while (sum > m) {
-            sum -= arr[start];
-            start++;
+      function solution(data, col, row_begin, row_end) {
+        let answer = 0;
+        const sort = data.sort((a, b) => {
+          if (a[col - 1] === b[col - 1]) {
+            return b[0] - a[0];
+          } else {
+            return a[col - 1] - b[col - 1];
           }
-          if (sum === m) {
-            answer++;
+        });
+        const resert = (2 % 2) + (2 % 2) + (6 % 2);
+        for (let i = row_begin - 1; i < row_end; i++) {
+          const target = sort[i];
+          let sum = 0;
+          for (let j = 0; j < target.length; j++) {
+            sum += target[j] % (i + 1);
           }
+          answer ^= sum;
         }
         return answer;
       }
 
-      let a = [1, 2, 3, 4, 5];
-      console.log(solution(5, a));
+      const arr = [
+        [2, 2, 6],
+        [1, 5, 10],
+        [4, 2, 9],
+        [3, 8, 3],
+      ];
+      console.log(solution(arr, 2, 2, 3));
     </script>
   </body>
 </html>
