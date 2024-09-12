@@ -5,12 +5,22 @@
   </head>
   <body>
     <script>
-      function solution(s) {
-        let answer = "";
-
+      function solution(m, arr) {
+        let answer = 0,
+          sum = 0,
+          start = 0;
+        for (let end = 0; end < arr.length; end++) {
+          sum += arr[end];
+          while (sum > m) {
+            sum -= arr[start++];
+          }
+          answer += end - start + 1;
+        }
         return answer;
       }
-      console.log(solution("Stu DY"));
+
+      let a = [1, 3, 1, 2, 3];
+      console.log(solution(5, a));
     </script>
   </body>
 </html>
