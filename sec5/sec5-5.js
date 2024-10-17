@@ -26,6 +26,9 @@ function solution(k, arr) {
   return answer;
 }
 
+const arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+console.log(solution(3, arr));
+
 // 풀이2
 function solution2(k, arr) {
   let answer = (rt = sum = 0);
@@ -43,5 +46,21 @@ function solution2(k, arr) {
   return answer;
 }
 
-const arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
-console.log(solution(3, arr));
+// 풀이3
+function solution1(k, arr) {
+  let answer,
+    sum = 0,
+    max = Number.MIN_SAFE_INTEGER;
+
+  for (let i = 0; i <= arr.length - k; i++) {
+    answer = [...arr].slice(i, i + k);
+    sum = answer.reduce((a, b) => a + b);
+    if (max < sum) max = sum;
+  }
+
+  return max;
+}
+// 풀이3의 경우
+// answer의 길이만큼 돌기 때문에 이중 for문
+// 시간복잡도 O(n^2)
+// 풀이1, 풀이2는 for의 i만큼 반복이기 때문에 시간 복잡도 0(n)
