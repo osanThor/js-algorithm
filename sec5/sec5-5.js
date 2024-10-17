@@ -26,5 +26,22 @@ function solution(k, arr) {
   return answer;
 }
 
+// 풀이2
+function solution2(k, arr) {
+  let answer = (rt = sum = 0);
+
+  let n = arr.length;
+  for (let lt = 0; lt < n - k + 1; lt++) {
+    while (rt - lt < k) {
+      sum += arr[rt++];
+    }
+
+    answer = Math.max(answer, sum);
+    sum -= arr[lt];
+  }
+
+  return answer;
+}
+
 const arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
 console.log(solution(3, arr));
