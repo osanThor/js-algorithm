@@ -6,16 +6,8 @@
   <body>
     <script>
       function solution(m, arr) {
-        let answer = 0,
-          sum = 0,
-          start = 0;
-        for (let end = 0; end < arr.length; end++) {
-          sum += arr[end];
-          while (sum > m) {
-            sum -= arr[start++];
-          }
-          answer += end - start + 1;
-        }
+        let answer = 0;
+
         return answer;
       }
 
