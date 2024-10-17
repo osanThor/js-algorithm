@@ -12,13 +12,14 @@
 // 첫 줄에 최대 매출액을 출력합니다.
 
 function solution(k, arr) {
-  let answer = 0, // 최대 매출액
+  let answer, // 최대 매출액
     sum = 0; // 합계
 
-  for (let x of arr) sum += x;
+  for (let i = 0; i < k; i++) sum += arr[i];
   answer = sum;
   for (let i = k; i < arr.length; i++) {
-    sum += arr[k] - arr[i - k];
+    const dif = arr[i] - arr[i - k];
+    sum += dif;
     answer = Math.max(answer, sum);
   }
 
