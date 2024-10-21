@@ -11,14 +11,44 @@
 // ▣ 출력설명
 // 두 단어가 아나그램이면 “YES"를 출력하고, 아니면 ”NO"를 출력합니다.
 
-function solution(str1, str2) {
+function solution1(str1, str2) {
   let answer = "NO";
   const newMap = new Map();
-  answer = newMap;
 
+  for (let x of str1) {
+    const target = newMap.get(x);
+    newMap.set(x, target ? target + 1 : 1);
+  }
+
+  for (let y of str2) {
+    const target = newMap.get(y);
+    target && newMap.set(y, target - 1);
+  }
+  const filter = [...newMap.entries()].find((count) => count[1] !== 0);
+  answer = filter ? "NO" : "YES";
   return answer;
 }
 
 const str1 = "AbaAeCe";
 const str2 = "baeeACA";
-console.log(solution(str1, str2));
+console.log(solution1(str1, str2));
+
+// 위 방식대로 하면 for문이 세개
+function solution2(str1, str2) {
+  let answer = "YES";
+  const newMap = new Map();
+
+  for (let x of str1) {
+    const target = newMap.get(x);
+    newMap.set(x, target ? target + 1 : 1);
+  }
+
+  for (let y of str2) {
+    const target = newMap.get(y);
+    if (!target || target === 0) return "NO";
+    target && newMap.set(y, target - 1);
+  }
+  return answer;
+}
+
+console.log(solution2(str1, str2));
