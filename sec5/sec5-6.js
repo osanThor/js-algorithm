@@ -22,7 +22,7 @@ function solution(n, arr) {
     max = Math.max(...map.values());
   }
 
-  for (let [key, value] of map.entries()) {
+  for (let [key, value] of map) {
     if (value === max) answer = key;
   }
   return answer;

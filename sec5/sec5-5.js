@@ -47,19 +47,19 @@ function solution2(k, arr) {
 }
 
 // 풀이3
-function solution1(k, arr) {
+function solution3(k, arr) {
   let answer,
-    sum = 0,
-    max = Number.MIN_SAFE_INTEGER;
+    sum = 0;
 
   for (let i = 0; i <= arr.length - k; i++) {
-    answer = [...arr].slice(i, i + k);
-    sum = answer.reduce((a, b) => a + b);
-    if (max < sum) max = sum;
+    const newArr = [...arr].slice(i, i + k); // .slice() 를 사용하여 k일 만큼의 각각 매출을 2차원 배열로
+    sum = newArr.reduce((a, b) => a + b); // 각 날마다 매출의 합을 구함
+    answer = Math.max(answer, sum);
   }
 
   return max;
 }
+console.log(solution3(3, arr));
 // 풀이3의 경우
 // answer의 길이만큼 돌기 때문에 이중 for문
 // 시간복잡도 O(n^2)

@@ -24,7 +24,7 @@ function solution1(str1, str2) {
     const target = newMap.get(y);
     target && newMap.set(y, target - 1);
   }
-  const filter = [...newMap.entries()].find((count) => count[1] !== 0);
+  const filter = [...newMap.values()].find((count) => count !== 0);
   answer = filter ? "NO" : "YES";
   return answer;
 }
