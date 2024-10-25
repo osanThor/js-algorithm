@@ -19,7 +19,7 @@ repo에 sec10까지 👉🏻[인프런 강의](https://www.inflearn.com/course/%
 - [x] sec2
 - [x] sec3
 - [x] sec4
-- [ ] sec5
+- [x] sec5
 - [ ] sec6
 - [ ] sec7
 - [ ] sec8
