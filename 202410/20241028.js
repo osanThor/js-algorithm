@@ -272,9 +272,94 @@
 // "z"	1	"a"
 // "a B z"	4	"e F d"
 
-function solution(str, n) {
-  let answer = "";
-  for (let i = 0; i < str.length; i++) {}
+// function solution(s, n) {
+//   let result = "";
+
+//   for (let char of s) {
+//     if (char === " ") {
+//       result += " ";
+//     } else {
+//       const charCode = char.charCodeAt(0);
+//       let shiftedCharCode;
+
+//       if (char >= "A" && char <= "Z") {
+//         shiftedCharCode = ((charCode - 65 + n) % 26) + 65;
+//       } else if (char >= "a" && char <= "z") {
+//         shiftedCharCode = ((charCode - 97 + n) % 26) + 97;
+//       }
+
+//       result += String.fromCharCode(shiftedCharCode);
+//     }
+//   }
+
+//   return result;
+// }
+// console.log(solution("AB", 1));
+
+// &#################### 특정 문자
+
+// function solution(s) {
+//   return s
+//     .split(" ")
+//     .map((char) =>
+//       char
+//         .split("")
+//         .map((c, id) => (id % 2 === 0 ? c.toUpperCase() : c.toLowerCase()))
+//         .join("")
+//     )
+//     .join(" ");
+// }
+
+// console.log(solution("try hello world"));
+
+// ############## 자릿수 더하기
+// 문제 설명
+// 자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
+// 예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.
+
+// 제한사항
+// N의 범위 : 100,000,000 이하의 자연수
+// function solution(n) {
+//   let sum = 0,
+//     temp = n;
+//   while (temp > 0) {
+//     sum += temp % 10;
+//     temp = Math.floor(temp / 10);
+//   }
+//   return sum;
+// }
+// console.log(solution(123));
+
+// ############ 자연수 뒤집어 배열로 만들기
+// 문제 설명
+// 자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요. 예를들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
+
+// 제한 조건
+// n은 10,000,000,000이하인 자연수입니다.
+
+// function solution(n) {
+//   return n.toString().split("").reverse().map(Number);
+// }
+
+// console.log(solution(12345));
+
+// ############ 정수 내림차순으로 배치하기
+// 문제 설명
+// 함수 solution은 정수 n을 매개변수로 입력받습니다. n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요. 예를들어 n이 118372면 873211을 리턴하면 됩니다.
+
+// 제한 조건
+// n은 1이상 8000000000 이하인 자연수입니다.
+// 입출력 예
+// n	return
+// 118372	873211
+function solution(n) {
+  return Number(
+    n
+      .toString()
+      .split("")
+      .sort((a, b) => b - a)
+      .join("")
+  );
 }
 
-console.log(solution("AB", 1));
+console.log(solution(118372));
