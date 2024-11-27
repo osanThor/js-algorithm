@@ -1,3 +1,4 @@
+// Lv.1 별찍기
 // function solution(str) {
 //   const [n, m] = str.split(" ").map(Number);
 //   const row = Array(n).fill("*").join("") + "\n";

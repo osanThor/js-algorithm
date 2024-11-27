@@ -1,3 +1,4 @@
+// Lv.1 최소공약수 최대공배수
 function gcd(a, b) {
   if (b === 0) return a;
   return gcd(b, a % b);
